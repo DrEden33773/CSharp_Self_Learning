@@ -1,4 +1,4 @@
-using CSharp_Self_Learning;
+using CSharp_Self_Learning.src;
 
 internal class Program
 {
@@ -15,7 +15,9 @@ internal class Program
         Greeting.Example();
         // TypeConversion.Example();
         // InitClass.Example();
-        ReferenceParam.Example();
+        // ReferenceParam.Example();
+
+        OfficialStack<int>.IntExample();
     }
 
 }

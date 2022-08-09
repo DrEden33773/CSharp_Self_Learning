@@ -1,4 +1,4 @@
-namespace CSharp_Self_Learning;
+namespace CSharp_Self_Learning.src;
 
 public class TypeConversion
 {

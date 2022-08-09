@@ -1,4 +1,4 @@
-namespace CSharp_Self_Learning;
+namespace CSharp_Self_Learning.src;
 
 // default accessible status => protected
 public class InitClass
@@ -18,9 +18,13 @@ public class InitClass
         {
             if (this.day == 0 || this.month == 0 || this.year == 0)
             {
-                Console.WriteLine(value: "This Class </DateDefination/> has not been initialized.");
+                Console.WriteLine(
+                    "This Class </DateDefination/> has not been initialized."
+                );
             }
-            Console.WriteLine("The date => {2}/{1}/{0}", this.day, this.month, this.year);
+            Console.WriteLine(
+                "The date => {2}/{1}/{0}", this.day, this.month, this.year
+            );
         }
     }
     public static void Example()
