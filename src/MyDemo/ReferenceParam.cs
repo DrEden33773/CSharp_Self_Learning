@@ -1,4 +1,4 @@
-namespace CSharp_Self_Learning.src;
+namespace CSharp_Self_Learning;
 
 public class ReferenceParam
 {

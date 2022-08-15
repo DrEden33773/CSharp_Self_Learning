@@ -1,4 +1,4 @@
-namespace CSharp_Self_Learning.src;
+namespace CSharp_Self_Learning;
 
 // default accessible status => protected
 public class InitClass
