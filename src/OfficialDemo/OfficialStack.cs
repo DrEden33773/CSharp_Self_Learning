@@ -2,11 +2,12 @@ namespace CSharp_Self_Learning.src
 {
     public class OfficialStack<T>
     {
-        Entry? _top; // Entry of the Stack
+        Node? _top = null; // Entry of the Stack
 
         public void Push(T data)
         {
-            _top = new Entry(_top, data);
+            _top = new Node(_top, data);
+            // _top's next should always be the latter _top 
         }
 
         public T Pop()
@@ -26,7 +27,8 @@ namespace CSharp_Self_Learning.src
             if (_top == null)
             {
                 Console.WriteLine("Stack is empty.");
-                return;
+                throw new InvalidOperationException();
+                // return;
             }
             var current = _top;
             while (current != null)
@@ -38,12 +40,12 @@ namespace CSharp_Self_Learning.src
             Console.WriteLine();
         }
 
-        class Entry
+        private class Node
         {
-            public Entry Next { get; set; }
+            public Node Next { get; set; }
             public T Data { get; set; }
 
-            public Entry(Entry next, T data)
+            public Node(Node next, T data)
             {
                 Next = next;
                 Data = data;
@@ -52,19 +54,25 @@ namespace CSharp_Self_Learning.src
 
         public static void IntExample()
         {
-            OfficialStack<int>? UserStack = new OfficialStack<int>();
+            OfficialStack<int>? UserStack = new(); // available
 
             for (int i = 0; i < 10; i++)
             {
-                UserStack.Push(data: i);
+                UserStack.Push(i);
             }
             UserStack.Echo();
+            Console.WriteLine();
 
             for (int i = 0; i < 5; i++)
             {
-                UserStack.Pop();
+                var Poped = UserStack.Pop();
+                Console.WriteLine($"Poped => {Poped}");
             }
+            Console.WriteLine();
+
             UserStack.Echo();
+            Console.WriteLine();
+
         }
     }
 }
