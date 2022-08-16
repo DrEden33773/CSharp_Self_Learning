@@ -1,6 +1,7 @@
 using CSharp_Self_Learning;
+using CSharp_Self_Learning.src.ForDebug;
 
-internal class Program
+public class Program
 {
     private static void Main(string[] args)
     {
@@ -17,6 +18,9 @@ internal class Program
         // InitClass.Example();
         // ReferenceParam.Example();
         OfficialStack<int>.IntExample();
+        // ExpressionModel.Example();
+        DelegateDemo.Example();
+        InitReferenceType.Example();
     }
 
 }
