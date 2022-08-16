@@ -1,5 +1,7 @@
 namespace CSharp_Self_Learning.src.ForDebug;
 
+// CPP.(__ReferenceTypeName__) <=> CSharp.(__ReferenceTypeName__ &)
+
 public class InitReferenceType
 {
     private class UserClass<T>
@@ -29,6 +31,15 @@ public class InitReferenceType
         B.Value = "Hello";
         A.Echo();
         B.Echo();
+
+        /// Error Code Below
+        // UserClass<int> AA;
+        // AA.Value = 1;
+        // UserClass<string> BB;
+        // BB.Value = "Hello";
+        // AA.Echo();
+        // BB.Echo();
+        /// Error Code Above
 
         /// The Following CodeBlock Could Normally Run 
         // var structA = UserStruct<int>.Create(1);
