@@ -32,7 +32,7 @@ public class InitReferenceType
         // B.Value = "Hello";
         // A.Echo();
         // B.Echo();
-        /// Error Code Below
+        /// Error Code Above
 
         /// Error Code Below => Class (Reference Type) need to init
         // UserClass<int> AA;
@@ -41,7 +41,7 @@ public class InitReferenceType
         // BB.Value = "Hello";
         // AA.Echo();
         // BB.Echo();
-        /// Error Code Below
+        /// Error Code Above
 
         /// The Following CodeBlock Could Normally Run 
         var structA = UserStruct<int>.Create(1);
