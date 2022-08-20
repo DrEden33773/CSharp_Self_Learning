@@ -58,5 +58,7 @@ public class InitReferenceType
         foreach (var item in ArrayB)
             Console.Write(item + " ");
         Console.WriteLine();
+
+        Console.WriteLine();
     }
 }

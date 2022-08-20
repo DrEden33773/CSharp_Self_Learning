@@ -12,19 +12,36 @@ public class OfficialList<T>
         _items = new T[capacity];
     }
 
-    public int Count => _count; // Property
+    public int Count => _count; // Property(Read-Only)
 
     public int Capacity
     {
         get => _items.Length;
         set // contains "value" (input)
         {
-            if (value < _count) value = _count;
-            if (value != _items.Length)
+            var originCapacity = _items.Length;
+            var inputCapicity = value;
+            if (inputCapicity < _count)
             {
-                T[] newItems = new T[value];
-                Array.Copy(_items, 0, newItems, 0, _count);
+                Console.WriteLine(
+                    format: $"input capacity '{inputCapicity}' is smaller than size '{_count + 1}' , ",
+                    arg0: $"but has been automatically reset to that, ",
+                    arg1: $"in order to avoid data after _items[{inputCapicity - 1}] beening discarded."
+                );
+                inputCapicity = _count;
+            }
+            if (inputCapicity != originCapacity)
+            {
+                T[] newItems = new T[inputCapicity];
+                Array.Copy(
+                    sourceArray: _items,
+                    sourceIndex: 0,
+                    destinationArray: newItems,
+                    destinationIndex: 0,
+                    length: _count
+                );
                 _items = newItems;
+                _count = inputCapicity;
             }
         }
     } // Property
@@ -35,7 +52,7 @@ public class OfficialList<T>
         {
             if (index < 0 || index >= _count)
             {
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("input index is out of range.");
             }
             return _items[index];
         }
@@ -43,7 +60,7 @@ public class OfficialList<T>
         {
             if (index < 0 || index >= _count)
             {
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("input index is out of range.");
             }
             _items[index] = value;
         }
@@ -106,7 +123,7 @@ public class OfficialList<T>
         Console.WriteLine($"i = {i} , j = {j}");
 
         // indexer example part
-        UserList[0] = 1;     // Invokes indexer set accessor
+        UserList[index: 0] = 1;     // Invokes indexer set accessor
         int k = UserList[0]; // Invokes indexer get accessor
         Console.WriteLine($"k = {k}");
     }
